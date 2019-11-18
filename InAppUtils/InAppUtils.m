@@ -121,8 +121,50 @@ restoreCompletedTransactionsFailedWithError:(NSError *)error
     if (callback) {
         switch (error.code)
         {
+            case SKErrorUnknown: 
+                callback(@[@"error_unknown"]);
+                break;
+            case SKErrorClientInvalid: 
+                callback(@[@"client_invalid"]);
+                break;
             case SKErrorPaymentCancelled:
                 callback(@[@"user_cancelled"]);
+                break;
+            case SKErrorPaymentInvalid: 
+                callback(@[@"payment_invalid"]);
+                break;
+            case SKErrorPaymentNotAllowed: 
+                callback(@[@"payment_not_allowed"]);
+                break;
+            case SKErrorStoreProductNotAvailable:
+                callback(@[@"store_product_not_available"]);
+                break;
+            case SKErrorCloudServicePermissionDenied: 
+                callback(@[@"cloud_service_permission_denied"]);
+                break;
+            case SKErrorCloudServiceNetworkConnectionFailed: 
+                callback(@[@"cloud_service_network_connection_failed"]);
+                break;
+            case SKErrorCloudServiceRevoked:
+                callback(@[@"cloud_service_revoked"]);
+                break;
+            case SKErrorPrivacyAcknowledgementRequired: 
+                callback(@[@"privacy_acknowledgement_required"]);
+                break;
+            case SKErrorUnauthorizedRequestData: 
+                callback(@[@"unauthorized_request_data"]);
+                break;
+            case SKErrorInvalidOfferIdentifier:
+                callback(@[@"invalid_offer_identifier"]);
+                break;
+            case SKErrorInvalidOfferPrice: 
+                callback(@[@"invalid_offer_price"]);
+                break;
+            case SKErrorInvalidSignature: 
+                callback(@[@"invalid_signature"]);
+                break;
+            case SKErrorMissingOfferParams:
+                callback(@[@"missing_offer_params"]);
                 break;
             default:
                 callback(@[@"restore_failed"]);
